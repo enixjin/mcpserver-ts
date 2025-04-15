@@ -1,0 +1,10 @@
+{
+    "mcpServers": {
+        "server_name1": {
+          "url": "http://192.168.120.102:3001/sse",
+          "headers": {},
+          "timeout": 60,
+          "sse_read_timeout": 300
+        }
+      }
+  }
