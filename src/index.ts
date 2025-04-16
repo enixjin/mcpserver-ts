@@ -2,6 +2,8 @@ import { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
 import { SSEServerTransport } from "@modelcontextprotocol/sdk/server/sse.js";
 import express, { Request, Response } from "express";
 import { z } from "zod";
+import customers from './mockdata/customer.json';
+import transactions from './mockdata/transaction.json';
 
 const server = new McpServer({
   name: "localmcp-server",
@@ -13,23 +15,65 @@ const app = express();
 
 server.tool(
   "get-userProfile",
-  "Get user profile by userid",
+  "Get user profile by mobile",
   {
-    id: z.string().length(6).describe("user's id"),
+    mobile: z.number().describe("user's mobile"),
   },
-  async ({ id }) => {
-    return {
-      content: [
-        {
-          type: "text",
-          text: "username:Enix, gender:male, colorlike:blue, city:Shanghai",
-        },
-      ],
-    };
-  },
+  async ({ mobile }) => {
+    let hit = customers.filter(_ => _["Mobile Number"] === mobile);
+    if (hit) {
+      return {
+        content: [
+          {
+            type: "text",
+            text: `${JSON.stringify(hit)}`,
+          },
+        ],
+      };
+    } else {
+      return {
+        content: [
+          {
+            type: "text",
+            text: "mobile not found",
+          },
+        ],
+      };
+    }
+  }
 );
 
-const transports: {[sessionId: string]: SSEServerTransport} = {};
+server.tool(
+  "get-userTransaction",
+  "Get user transaction by customerid",
+  {
+    customerid: z.number().describe("user's customerid"),
+  },
+  async ({ customerid }) => {
+    let hit = transactions.filter(_ => _["Customer ID"] === '' + customerid);
+    if (hit) {
+      return {
+        content: [
+          {
+            type: "text",
+            text: `${JSON.stringify(hit)}`,
+          },
+        ],
+      };
+    } else {
+      return {
+        content: [
+          {
+            type: "text",
+            text: "no transaction found",
+          },
+        ],
+      };
+    }
+  }
+);
+
+const transports: { [sessionId: string]: SSEServerTransport } = {};
 
 app.get("/sse", async (_: Request, res: Response) => {
   const transport = new SSEServerTransport('/messages', res);
