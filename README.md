@@ -13,4 +13,5 @@ Install NodeJS from [here](https://nodejs.org/en)
 ## 3. Run (port 3001)
 > npm run build && node build/index.js
 
-
+## 4. Test
+> npx @modelcontextprotocol/inspector
