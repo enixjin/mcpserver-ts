@@ -13,25 +13,25 @@
     },
     {
         "Date": 20250101,
-        "Customer ID": "600004",
+        "Customer ID": "600002",
         "SKU": "HBEU505011294063032",
         "Qty": 1
     },
     {
         "Date": 20250203,
-        "Customer ID": "600004",
+        "Customer ID": "600002",
         "SKU": "HBEU50494697002M",
         "Qty": 1
     },
     {
         "Date": 20250213,
-        "Customer ID": "600005",
+        "Customer ID": "600003",
         "SKU": "hbeu5053341900130",
         "Qty": 1
     },
     {
         "Date": 20250213,
-        "Customer ID": "600005",
+        "Customer ID": "600003",
         "SKU": "hbeu5053098796034",
         "Qty": 1
     }

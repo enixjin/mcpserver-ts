@@ -4,10 +4,10 @@
         "Mobile Number": 13912345601,
         "Last Name": "徐",
         "First Name": "洋",
-        "Gender": "female",
-        "Age": 30,
-        "Spoken Language": "french",
-        "Preferred Title": "领导"
+        "Gender": "male",
+        "Age": 44,
+        "Spoken Language": "chinese",
+        "Preferred Title": "先生"
     },
     {
         "Customer ID": "600002",
@@ -15,18 +15,18 @@
         "Last Name": "高",
         "First Name": "敏",
         "Gender": "female",
-        "Age": 44,
+        "Age": 30,
         "Spoken Language": "cantonese",
-        "Preferred Title": "老师"
+        "Preferred Title": "女士"
     },
     {
         "Customer ID": "600003",
         "Mobile Number": 13912345603,
-        "Last Name": "高",
-        "First Name": "艳",
-        "Gender": "female",
+        "Last Name": "胡",
+        "First Name": "伟",
+        "Gender": "male",
         "Age": 29,
-        "Spoken Language": "french",
+        "Spoken Language": "english",
         "Preferred Title": "先生"
     },
     {
