@@ -124,6 +124,36 @@ server.tool(
   }
 );
 
+server.tool(
+  "get-userChat",
+  "Get user chat by customerid",
+  {
+    customerid: z.number().describe("user's customerid"),
+  },
+  async ({ customerid }) => {
+    let hit = chatData.filter(_ => _.customerid === customerid);
+    if (hit) {
+      return {
+        content: [
+          {
+            type: "text",
+            text: `${JSON.stringify(hit)}`,
+          },
+        ],
+      };
+    } else {
+      return {
+        content: [
+          {
+            type: "text",
+            text: "no chat found",
+          },
+        ],
+      };
+    }
+  }
+);
+
 const transports: { [sessionId: string]: SSEServerTransport } = {};
 
 app.get("/sse", async (_: Request, res: Response) => {
