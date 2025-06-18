@@ -2,10 +2,13 @@
   "name": "server",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "src/index.ts",
   "type": "commonjs",
   "scripts": {
     "build": "tsc && node -e \"require('fs').chmodSync('build/index.js', '755')\""
+  },
+  "bin": {
+    "mcpserver-ts": "ts-node src/index.ts"
   },
   "keywords": [],
   "author": "",
@@ -17,6 +20,10 @@
   },
   "dependencies": {
     "@modelcontextprotocol/sdk": "^1.4.0",
-    "express": "^5.1.0"
+    "commander": "^14.0.0",
+    "express": "^5.1.0",
+    "mammoth": "^1.9.1",
+    "turndown": "^7.2.0",
+    "uuid": "^11.1.0"
   }
 }
